@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Главная страница";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main role="main" class="pb-3">
+    <section id="master-form">
+        @await Component.InvokeAsync("FlightSearchForm")
+    </section>
+
+    <section id="main-carousel">
+        <div class="container py-5">
+            <div id="carouselMain" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselMain" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center" data-bs-interval="4000">
+                        <img src="/img/thailand-1.png" alt="Таиланд" width="768">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Полеты в Таиланд</h5>
+                            <p>Летайте в Таиланд по сниженному тарифу в период с 31 мая по 1 сентября</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item text-center" data-bs-interval="4000">
+                        <img src="/img/russian-city.png" alt="Екатеринбург">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Между городами России</h5>
+                            <p>Удобные перелеты для командировок и отдыха</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item text-center" data-bs-interval="6000">
+                        <img src="/img/spb.png" alt="Санкт-Петербург">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Путешествие в культурную столицу России</h5>
+                            <p>Откройте для себя магию Санкт-Петербурга — города, где величественные дворцы встречаются с живописными каналами, а культурные сокровища наполняют каждую улицу вдохновением и историей</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Предыдущий</span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMain" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Следующий</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="main-cards">
+        <div class="container w-75 my-5">
+            <div class="row row-cols-1 row-cols-sm-2 g-3">
+                <div class="col">
+                    <div class="card border border-1 border-primary">
+                        <img src="/img/board.png" class="card-img-top" alt="Салон самолета" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">Самолеты</h5>
+
+                            <p class="card-text">
+                                В распоряжении нашей авиакомпании имеются современные самолеты отечественного производства, средний возраст которых не превышает 5 лет.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card border border-1 border-primary">
+                        <img src="/img/thailand-2.png" class="card-img-top" alt="Курорт" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">Направления</h5>
+
+                            <p class="card-text">
+                                Мы летаем по самым популярным туристическим направлениям, включая Таиланд, Турцию, российские курорты Анапа, Сочи, Минеральные Воды.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card border border-1 border-primary">
+                        <img src="/img/employee.png" class="card-img-top" alt="Персонал" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">Персонал</h5>
+
+                            <p class="card-text">
+                                Наш персонал проходит качественное профессиональное обучение, всегда вежлив и рад помочь в полете. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="card border border-1 border-primary">
+                        <img src="/img/food.png" class="card-img-top" alt="Питание" />
+
+                        <div class="card-body">
+                            <h5 class="card-title">Питание на борту</h5>
+
+                            <p class="card-text">
+                                Мы предлагаем свежее и вкусное питание во время полетов длительностью более 2-х часов.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,20 @@
+﻿@using FrontendService.Models.Booking
+@using FrontendService.ViewModels.Booking
+@model BookingInitialDataModel
+
+
+@await Component.InvokeAsync("PassengerRegistrationForm", CreateFormInitialData(Model))
+
+
+@{
+	PassengerRegistrationInitialDataModel CreateFormInitialData(BookingInitialDataModel bookingData)
+	{
+		var result = new PassengerRegistrationInitialDataModel
+		{
+			FlightId = bookingData.FlightId,
+			PassengersCount = bookingData.PassengersCount
+		};
+
+		return result;
+	}
+}

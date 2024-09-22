@@ -1,0 +1,76 @@
+﻿@using FrontendService.ViewModels.Booking
+@model PassengerRegistrationInitialDataModel
+
+
+<form asp-controller="Booking" asp-action="Book" asp-route-flightId="@Model.FlightId" method="post" class="bg-black text-white m-3 p-3 border border-1 border-primary rounded-3">
+	@for (int i = 0; i < Model.PassengersCount; ++i)
+	{
+		<fieldset>
+			<div class="bg-white text-black m-3 p-3 border border-3 border-primary rounded-3">
+				<h5>Пассажир @(i + 1)</h5>
+
+				<div class="container-fluid p-5">
+					<div class="row p-1">
+						<div class="col">
+							<label class="col-form-label-sm">Имя:</label>
+							<input class="form-control form-control-lg" name="[@i].FirstName" type="text" placeholder="Имя пассажира" required />
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Фамилия:</label>
+							<input class="form-control form-control-lg" name="[@i].Surname" type="text" placeholder="Фамилия пассажира" required />
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Отчество при наличии:</label>
+							<input class="form-control form-control-lg" name="[@i].MiddleName" type="text" placeholder="Отчество пассажира" />
+						</div>
+					</div>
+
+					<div class="row p-1">
+						<div class="col">
+							<label class="col-form-label-sm">Номер документа, удостоверяющего личность:</label>
+							<input class="form-control form-control-lg" name="[@i].DocumentNumber" type="text" placeholder="1234 567890" required />
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Гражданство:</label>
+							<select class="form-select" name="[@i].DocumentIssuerCountry" required >
+								<option value="Russia" selected>Российская Федерация</option>
+								<option value="Belarus">Республика Беларусь</option>
+								<option value="Kazakhstan">Республика Казахстан</option>
+							</select>
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Дата рождения:</label>
+							<input class="form-control form-control-lg" name="[@i].BirthDate" type="date" required />
+						</div>
+					</div>
+
+					<div class="row p-1">
+						<div class="col">
+							<label class="col-form-label-sm">Пол:</label>
+							<select class="form-select" name="[@i].Gender" required >
+								<option value="0">Мужской</option>
+								<option value="1">Женский</option>
+							</select>
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Номер телефона:</label>
+							<input class="form-control form-control-lg" name="[@i].PhoneNumber" type="tel" placeholder="Номер телефона пассажира" required />
+						</div>
+
+						<div class="col">
+							<label class="col-form-label-sm">Адрес электронной почты:</label>
+							<input class="form-control form-control-lg" name="[@i].Email" type="email" placeholder="someone@example.com" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+	}
+
+	<button class="btn btn-primary" type="submit">Забронировать!</button>
+</form>

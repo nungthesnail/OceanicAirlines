@@ -1,0 +1,29 @@
+﻿@using InterserviceCommunication.Models;
+
+
+<form asp-controller="Search" asp-action="Index" method="get">
+	<div class="container-fluid bg-black p-3 m-3 rounded-3 border border-1 border-primary">
+		<h5 class="text-primary">Поиск рейсов:</h5>
+		<div class="row align-items-end">
+			<div class="col">
+				<label class="col-form-label-sm text-white" for="DepartureAirport">Откуда:</label>
+				<input class="form-control form-control-lg border border-primary" id="DepartureAirport" name="DepartureAirport" placeholder="Откуда" required />
+			</div>
+			<div class="col">
+				<label class="col-form-label-sm text-white" for="ArrivalAirport">Куда:</label>
+				<input class="form-control form-control-lg border border-primary" id="ArrivalAirport" name="ArrivalAirport" placeholder="Куда" required />
+			</div>
+			<div class="col">
+				<label class="col-form-label-sm text-white" for="DepartureDate">Дата:</label>
+				<input class="form-control form-control-lg border border-primary" type="date" id="DepartureDate" name="DepartureDate" required />
+			</div>
+			<div class="col">
+				<label class="col-form-label-sm text-white" for="PassengerCount">Количество пассажиров:</label>
+				<input class="form-control form-control-lg border border-primary" type="number" id="PassengerCount" name="PassengerCount" value="1" required />
+			</div>
+			<div class="col-2">
+				<button class="btn btn-primary btn-lg" id="SearchSubmit" type="submit">Найти</button>
+			</div>
+		</div>
+	</div>
+</form>

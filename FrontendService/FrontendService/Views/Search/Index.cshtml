@@ -1,0 +1,23 @@
+﻿@using FrontendService.ViewModels.Flights
+@model SearchViewModel
+
+
+<main role="main" class="pb-3">
+	@await Component.InvokeAsync("FlightSearch", Model.SearchQuery)
+
+	<div class="container">
+		@if (!Model.Flights.Any())
+		{
+			<div class="m-5 p-5 text-center bg-white border border-1 border-primary rounded-3">
+				<h5 class="display-6">К сожалению, ничего не найдено :(</h5>
+			</div>
+		}
+		else
+		{
+			@foreach (var flight in Model.Flights)
+			{
+				@await Component.InvokeAsync("Flight", flight);
+			}
+		}
+	</div>
+</main>

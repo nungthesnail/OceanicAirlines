@@ -1,0 +1,26 @@
+﻿@using FrontendService.ViewModels.Flights
+@model FlightSearchViewModel
+
+
+<section id="SearchViewSection">
+	<div class="container-fluid rounded-3 m-3 p-3 bg-black border border-1 border-primary rounded-3 text-white">
+		<div class="row align-items-end">
+			<div class="col">
+				<h4>Откуда:</h4>
+				<p>@Model.DepartureAirport</p>
+			</div>
+			<div class="col">
+				<h4>Куда:</h4>
+				<p>@Model.ArrivalAirport</p>
+			</div>
+			<div class="col">
+				<h4>Дата:</h4>
+				<p>@Model.DepartureDate</p>
+			</div>
+			<div class="col">
+				<h4>Количество пассажиров:</h4>
+				<p>@Model.PassengersCount</p>
+			</div>
+		</div>
+	</div>
+</section>

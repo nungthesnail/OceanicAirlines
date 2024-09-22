@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\InterserviceCommunication\InterserviceCommunication\InterserviceCommunication.csproj" />
+    <ProjectReference Include="..\EntityFrameworkLogic\EntityFrameworkLogic.csproj" />
+    <ProjectReference Include="..\JwtUtils\JwtUtils.csproj" />
+    <ProjectReference Include="..\PasswordHasher\PasswordUtils.csproj" />
+  </ItemGroup>
+
+</Project>

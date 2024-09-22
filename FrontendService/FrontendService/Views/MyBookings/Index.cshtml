@@ -1,0 +1,28 @@
+﻿@using FrontendService.ViewModels.Booking
+@model IEnumerable<BookingViewModel>
+
+
+<main role="main" class="pb-3">
+	<h2 class="text-center bg-white rounded-3 py-2 m-5 display-6">Мои бронирования:</h2>
+
+	@foreach (var booking in Model)
+	{
+		@await Component.InvokeAsync("Booking", booking)
+	}
+
+	@if (!HasBookings())
+	{
+		<div class="container text-center bg-white rounded-3 py-2">
+			<h5 class="display-6">
+				Похоже, вы пока не совершили ни одного бронирования. <a href="/" class="text-decoration-none text-primary">Это очень легко исправить!</a>
+			</h5>
+		</div>
+	}
+</main>
+
+@{
+	bool HasBookings()
+	{
+		return Model.Any();
+	}
+}

@@ -1,0 +1,21 @@
+﻿@model int; // Error code
+
+
+<div class="container m-5 p-3 bg-white border border-1 border-primary rounded-3">
+	<h2 class="display-1 text-danger text-center m-5">@Model</h2>
+
+	
+	@if (Model == 404)
+	{
+		<h5 class="display-6 text-center p-5">
+			Кажется, такой страницы нет...
+		</h5>
+	}
+	else
+	{
+		<h5 class="display-6 text-center p-5">
+			Кажется, что-то пошло не по плану
+		</h5>
+	}
+
+</div>

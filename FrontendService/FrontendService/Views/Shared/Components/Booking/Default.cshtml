@@ -1,0 +1,73 @@
+﻿@using FrontendService.ViewModels.Booking
+@model BookingViewModel
+
+
+<section>
+	<div class="container border border-1 border-primary rounded-3 m-3 p-5 bg-white">
+		<div class="row">
+			<h5>Бронирование на рейс:</h5>
+
+			<div class="col container m-3 p-3 border border-1 border-primary rounded-3">
+				<div class="row">
+					<div class="col text-start">
+						<p>@Model.Flight.SheduledDeparture</p>
+					</div>
+					<div class="col text-end">
+						<p>@Model.Flight.SheduledArrival</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col text-start">
+						<p class="h5">@Model.Flight.DepartureAirport</p>
+					</div>
+					<div class="col text-end">
+						<p class="h5">@Model.Flight.ArrivalAirport</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<p>Код бронирования: <b>@Model.Code</b></p>
+				<p>Статус подтверждения: <b>@GetConfirmationString(Model.Confirmed)</b></p>
+				<p class="h4">Список пассажиров:</p>
+			</div>
+		</div>
+
+		@foreach (var passenger in Model.Passengers)
+		{
+			<div class="row m-3">
+				<div class="col container p-1 border border-primary border-1 rounded-1">
+					<div class="row">
+						<div class="col">
+							<p>
+								<b>
+									@passenger.FirstName
+									@(passenger.MiddleName ?? "")
+									@passenger.Surname
+								</b>.
+								Дата рождения: @passenger.BirthDate
+							</p>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<p><b>Максимальный вес багажа:</b> @passenger.MaxBaggageWeight кг.</p>
+							<p><b>Максимальный вес ручной клади:</b> @passenger.MaxCarryOnWeight кг.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</section>
+
+@{
+	string GetConfirmationString(bool confirmed)
+	{
+		return confirmed ? "Подтверждено" : "Ожидает подтверждения";
+	}
+}

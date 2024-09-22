@@ -1,0 +1,41 @@
+﻿<section id="RegisterFormSection">
+	<form id="RegisterForm" asp-controller="Register" asp-action="Register" method="post" class="d-flex justify-content-center">
+		<div class="container w-50 bg-white m-5 p-3 rounded-3">
+			<h3 class="text-center display-6">Регистрация пользователя</h3>
+
+			<div class="row p-2">
+				<div class="col">
+					<label class="col-form-label">Имя пользователя:</label>
+					<input class="form-control" type="text" name="Username" id="Username" placeholder="Введите имя пользователя..." required />
+				</div>
+			</div>
+
+			<div class="row p-2">
+				<div class="col">
+					<label class="col-form-label">Адрес электронной почты:</label>
+					<input class="form-control" type="email" name="Email" id="Email" placeholder="Введите адрес электронной почты..." required />
+				</div>
+			</div>
+
+			<div class="row p-2">
+				<div class="col">
+					<label class="col-form-label">Пароль:</label>
+					<input class="form-control" type="password" name="Password" id="Password" placeholder="******" required />
+				</div>
+			</div>
+
+			<div class="row p-2">
+				<div class="col">
+					<label class="col-form-label">Повторите пароль:</label>
+					<input class="form-control" type="password" name="PasswordRepeat" id="PasswordRepeat" placeholder="******" required />
+				</div>
+			</div>
+
+			<div class="row p-2">
+				<div class="col">
+					<button class="btn btn-lg btn-primary"type="submit">Зарегистрироваться</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</section>

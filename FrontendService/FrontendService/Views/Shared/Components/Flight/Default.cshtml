@@ -1,0 +1,47 @@
+﻿@using FrontendService.ViewModels.Flights
+@using System.Text.Json;
+@model FlightViewModel
+
+<div class="row border-1 rounded-3 p-3 m-5 border border-1 rounded-3 bg-white">
+	<div class="col-3 border-end border-1">
+		<h3>@Model.Price &#8381;</h3>
+
+		<form name="flight-@Model.FlightId" asp-controller="Booking" asp-action="StartBooking" method="post">
+			<input type="hidden" name="FlightId" value="@Model.FlightId" />
+			<input type="hidden" name="PassengersCount" value="@Model.PassengersCount" />
+
+			<button class="btn btn-primary" type="submit">Купить билет</button>
+		</form>
+	</div>
+
+	<div class="col">
+		<div class="row">
+			<div class="col text-start">
+				<p>Вылет:</p>
+				<h5>@Model.SheduledDeparture</h5>
+				<p>@Model.DepartureAirport</p>
+			</div>
+
+			<div class="col text-center">
+				<p>
+					Продолжительность полета: @GetFlightDuration(Model)
+				</p>
+			</div>
+
+			<div class="col text-end">
+				<p>Прилет:</p>
+				<h5>@Model.SheduledArrival</h5>
+				<p>@Model.ArrivalAirport</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+@{
+	string GetFlightDuration(FlightViewModel flight)
+	{
+		var flightDuration = flight.SheduledArrival - flight.SheduledDeparture;
+		var format = $"{flightDuration.Hours} часов {flightDuration.Minutes} минут";
+		return format;
+	}
+}

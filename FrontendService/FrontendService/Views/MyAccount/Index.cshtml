@@ -1,0 +1,56 @@
+﻿<div class="container m-5 bg-white border border-1 border-primary rounded-3">
+	<h2 class="display-6 text-center my-3">Мой аккаунт:</h2>
+
+	<div class="m-5">
+		<p>
+			Уникальный идентификатор пользователя: <b>@GetUserId()</b>
+		</p>
+		<p>
+			Имя пользователя: <b>@GetUserName()</b>
+		</p>
+	</div>
+
+	<div class="m-5">
+		<h5>Доступные действия:</h5>
+
+		<ul class="list-unstyled">
+			<li class="m-3">
+				<a asp-controller="Login" asp-action="Index" class="text-decoration-none border border-1 border-primary rounded-3 p-1">
+					Войти под другим аккаунтом
+				</a>
+			</li>
+
+			<li class="m-3">
+				<a asp-controller="Register" asp-action="Index" class="text-decoration-none border border-1 border-primary rounded-3 p-1">
+					Зарегистрировать нового пользователя
+				</a>
+			</li>
+
+			<li class="m-3">
+				<a asp-controller="Login" asp-action="Logout" class="text-decoration-none border border-1 border-primary rounded-3 p-1">
+					Выйти из аккаунта
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+@{
+	string? GetUserId()
+	{
+		var idClaim = User.Claims
+						  .Where(x => x.Type == "UserId")
+						  .FirstOrDefault();
+
+		return idClaim?.Value;
+	}
+
+	string? GetUserName()
+	{
+		var usernameClaim = User.Claims
+						  .Where(x => x.Type == "UserName")
+						  .FirstOrDefault();
+
+		return usernameClaim?.Value;
+	}
+}
